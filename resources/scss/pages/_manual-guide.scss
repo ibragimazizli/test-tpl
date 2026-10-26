@@ -1,0 +1,42 @@
+@use "../util";
+
+.manual-guide {
+  .video-list {
+    display: grid;
+    gap: 28px;
+
+    @include util.breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .video-item {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url("../assets/images/icons/icon-youtube.svg");
+      background-size: 100% 100%;
+      display: inline-block;
+      height: 40px;
+      width: 58px;
+
+      @include util.breakpoint(medium) {
+        height: 74px;
+        width: 106px;
+      }
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

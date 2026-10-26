@@ -1,0 +1,177 @@
+@use "../util";
+@use "sass:color";
+
+.modal {
+  border-radius: 18px;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  padding: 25px 20px;
+  display: none;
+  flex-direction: column;
+  gap: 30px;
+  max-height: 654px;
+  width: 90%;
+  @include util.breakpoint(xlarge) {
+    width: 680px;
+    padding: 25px 30px;
+  }
+
+  &.active {
+    display: flex;
+  }
+
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eaf2f4;
+    padding-bottom: 24px;
+
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .icon {
+        height: 49px;
+        width: 49px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+      }
+    }
+
+    &__right {
+      .modal-close {
+        height: 48px;
+        width: 48px;
+        border-radius: 12px;
+        background-color: #f9fafb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.4s ease;
+
+        &:hover {
+          background-color: color.adjust(#f9fafb, $lightness: -5%);
+        }
+      }
+    }
+  }
+
+  &-title {
+    font-size: 18px;
+  }
+
+  &-main {
+    flex: 1;
+    overflow: auto;
+
+    label {
+      font-weight: 500;
+      color: #474b56;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @include util.breakpoint(medium) {
+      gap: 20px;
+    }
+  }
+
+  &-item {
+    display: grid;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    @include util.breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    &-title {
+      color: #727482;
+    }
+      &-full {
+          grid-template-columns: 1fr;
+      }
+      input{
+          padding: 12px 22px;
+      }
+  }
+
+  &-input {
+    margin-top: 10px;
+      padding: 12px 22px;
+  }
+
+  &-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+      .button-pay {
+          height: 56px;
+
+          &:disabled {
+              background-color: #f6f6f6;
+              color: #c8d0d1;
+          }
+      }
+      .button-pay2{
+          margin-top: 0 !important;
+      }
+
+    .download {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+      background-color: #f4f9f8;
+      padding: 14px 18px;
+      border-radius: 12px;
+
+      @include util.breakpoint(xlarge) {
+        flex-direction: row;
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      &-title {
+        font-size: 14px;
+      }
+
+      &-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .download-item {
+          &::after {
+            content: "•";
+          }
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

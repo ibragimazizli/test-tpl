@@ -1,0 +1,78 @@
+@use "../util";
+
+.faq {
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    cursor: pointer;
+    padding: 18px 29px;
+    border: 1px solid #e8f0ef;
+    border-radius: 18px;
+
+    &.active {
+      .faq-item__main {
+        display: block;
+      }
+
+      .icon {
+        &-plus {
+          display: none !important;
+        }
+
+        &-minus {
+          display: block !important;
+        }
+      }
+    }
+
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      h2 {
+        font-size: 16px;
+
+        @include util.breakpoint(xlarge) {
+          font-size: 18px;
+        }
+      }
+
+      .icon {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #f4f9f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        .icon-minus {
+          display: none;
+        }
+      }
+    }
+
+    &__main {
+      background-color: #f4f9f8;
+      color: #161b24;
+      border-radius: 18px;
+      display: none;
+      font-size: 14px;
+      padding: 20px;
+
+      @include util.breakpoint(xlarge) {
+        font-size: 16px;
+      }
+    }
+  }
+}

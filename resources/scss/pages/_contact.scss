@@ -1,0 +1,50 @@
+@use "../util";
+
+.contact {
+  &-list {
+    display: grid;
+    gap: 40px 90px;
+
+    @include util.breakpoint(large) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include util.breakpoint(xlarge) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+    .contact-item__image  img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+
+  &-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &__image {
+      height: 140px;
+      width: 140px;
+      border-radius: 18px;
+      border: 1px solid #eaf2f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #595959;
+      font-size: 14px;
+    }
+
+    &-name {
+      font-size: 18px;
+      color: #000;
+    }
+  }
+}

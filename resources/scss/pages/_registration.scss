@@ -1,0 +1,251 @@
+@use "../util";
+@use "../globals/colors";
+
+.registration {
+    .radio-group-insurance {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        background-color: #fff;
+    }
+
+    .radio-option:hover {
+        border-color: #666;
+    }
+
+    .radio-option input[type="radio"] {
+        accent-color: #007bff;
+        width: 16px;
+        height: 16px;
+        margin: 0;
+    }
+
+    .radio-option span {
+        line-height: 1;
+        font-weight: 500;
+        user-select: none;
+    }
+  .stepper {
+    margin-bottom: 48px;
+  }
+
+  .tab-content {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .citizen-details {
+      display: none;
+
+      &.active {
+        display: grid;
+      }
+    }
+      .person-content {
+          display: none;
+
+          &.active {
+              display: block;
+          }
+      }
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 34px;
+    }
+
+    &-row {
+      display: grid;
+      gap: 28px;
+
+      @include util.breakpoint(xlarge) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+
+      label {
+        font-weight: 500;
+      }
+
+      .dropdown {
+        &__button {
+          border: 1px solid #e3e8ef;
+          padding: 15px 22px;
+        }
+      }
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+
+      .button {
+        padding: 14px 42px;
+          @include util.breakpoint(large) {
+              padding: 14px 50px;
+          }
+      }
+    }
+  }
+
+  .select-companies {
+      margin-bottom: 54px;
+
+    label {
+      margin-bottom: 20px;
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+
+        @include util.breakpoint(xlarge) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+      .companies-item {
+        border: 1px solid #e3e8ef;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 78px;
+        width: 193px;
+        cursor: pointer;
+        transition: border-color 0.4s ease;
+          @media (max-width: 768px) {
+              height: 58px;
+              width: 144px;
+          }
+        &:hover,
+        &.active {
+          border-color: colors.$primary-color;
+        }
+      }
+        .companies-item img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+  }
+
+    .citizen-list {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-bottom: 40px;
+        @media (max-width: 518px) {
+            display: grid;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+
+            @include util.breakpoint(xlarge) {
+                font-size: 16px;
+            }
+
+            input {
+                height: 18px;
+                width: 18px;
+                flex-shrink: 0;
+            }
+        }
+    }
+    .checkbox-wrapper {
+        margin-top: 12px;
+    }
+
+    .custom-checkbox {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        user-select: none;
+        gap: 10px;
+        position: relative;
+        padding-left: 28px;
+    }
+
+    .custom-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .custom-checkbox .checkmark {
+        position: absolute;
+        left: 0;
+        top: 2px;
+        height: 18px;
+        width: 18px;
+        background-color: #f3f3f3;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+
+    .custom-checkbox:hover .checkmark {
+        border-color: #999;
+    }
+
+    .custom-checkbox input:checked ~ .checkmark {
+        background-color: #12a5bc;
+        border-color: #12a5bc;
+    }
+
+    .custom-checkbox .checkmark::after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .custom-checkbox input:checked ~ .checkmark::after {
+        display: block;
+    }
+
+    .custom-checkbox .checkmark::after {
+        left: 5px;
+        top: 1px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+}

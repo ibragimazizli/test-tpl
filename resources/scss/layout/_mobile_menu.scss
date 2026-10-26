@@ -1,0 +1,39 @@
+.mobile-menu {
+  background-color: #fff;
+  height: 100dvh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  padding-top: 112px;
+  overflow: auto;
+    @media (max-width: 1024px) {
+        display: flex;
+    }
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .nav-link {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.4;
+    }
+  }
+}

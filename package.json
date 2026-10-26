@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^5.2.1",
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0",
+        "sass-embedded": "^1.85.1",
+        "vite": "^6.2.4"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "crypto-js": "^4.2.0",
+        "html2canvas": "^1.4.1",
+        "intl-tel-input": "^25.3.1",
+        "jspdf": "^3.0.1",
+        "pikaday": "^1.8.2",
+        "qrcode": "^1.5.4",
+        "simple-keyboard": "^3.8.93",
+        "swiper": "^11.2.5",
+        "vue": "^3.5.13"
+    }
+}

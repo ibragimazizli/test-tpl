@@ -1,0 +1,123 @@
+.is-terminal {
+    .pika-single {
+        width: 100%;
+        max-width: 450px;
+        font-family: inherit;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border: 1px solid #e2e8f0;
+    }
+
+    .pika-lendar {
+        width: 100%;
+        margin: 0;
+    }
+
+    .pika-title {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .pika-label {
+            font-size: 24px;
+            font-weight: 600;
+            padding: 8px 15px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            margin: 0 5px;
+
+            &:nth-of-type(1) {
+                order: 2;
+            }
+
+            &:nth-of-type(2) {
+                order: 3;
+            }
+        }
+
+        .pika-select {
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        .pika-prev,
+        .pika-next {
+            width: 50px;
+            height: 50px;
+            opacity: 0.8;
+            background-size: 40%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+
+            /* Hide the default text and keep only the background icon */
+            font-size: 0;
+            color: transparent;
+            text-indent: -9999px;
+            overflow: hidden;
+
+            &:hover {
+                opacity: 1;
+                background-color: #e2e8f0;
+            }
+        }
+
+        .pika-prev {
+            order: 1;
+            margin-right: auto;
+        }
+
+        .pika-next {
+            order: 4;
+            margin-left: auto;
+        }
+    }
+
+    .pika-table {
+        width: 100%;
+
+        th {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+            padding-bottom: 10px;
+        }
+    }
+
+    .pika-button {
+        background: #f8fafc;
+        border-radius: 10px;
+        font-size: 22px;
+        font-weight: 500;
+        padding: 16px 0;
+        text-align: center;
+        width: 100%;
+        margin: 2px 0;
+
+        &:hover {
+            background: #e2e8f0;
+        }
+    }
+
+    .is-empty .pika-button {
+        background: transparent;
+    }
+
+    .is-selected .pika-button,
+    .has-event .pika-button {
+        background: #235de6;
+        /* Adjust this to match primary theme color if needed */
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(35, 93, 230, 0.3);
+    }
+
+    .is-today .pika-button {
+        color: #235de6;
+        font-weight: bold;
+    }
+}

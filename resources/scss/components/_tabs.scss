@@ -1,0 +1,32 @@
+@use "../globals/colors";
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #e3e8ef;
+  margin-bottom: 36px;
+
+  &-item {
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #697586;
+    position: relative;
+
+    &.active {
+      color: colors.$primary-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: colors.$primary-color;
+        border-radius: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use "../globals/colors";
+@use "../util";
+
+.footer {
+  margin-top: 50px;
+  background-color: #fff;
+
+  &.fixed {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @include util.breakpoint(xlarge) {
+    margin-top: 150px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+      justify-content: space-between;
+    align-items: center;
+    gap: 34px;
+    border-top: 1px solid #eaf2f4;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    @include util.breakpoint(xlarge) {
+      flex-direction: row;
+    }
+      .logo-isb {
+          @include util.breakpoint(xlarge) {
+              display: none;
+          }
+      }
+  }
+
+  &-contact {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    font-size: 18px;
+    font-weight: 600;
+      @media (max-width: 768px) {
+          font-size: 15px;
+      }
+
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .icon {
+      height: 31px;
+      width: 31px;
+      border-radius: 50%;
+      background-color: colors.$primary-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

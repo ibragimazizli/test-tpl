@@ -1,0 +1,31 @@
+@use "../globals/colors";
+@use "../util";
+
+.breadcrumb {
+  font-size: 14px;
+  color: #575759;
+  margin-bottom: 40px;
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      color: #000;
+    }
+
+    &:not(:first-child)::before {
+      content: "";
+      background: url("../assets/images/icons/icon-chevron-right.svg") no-repeat center
+        center/ cover;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

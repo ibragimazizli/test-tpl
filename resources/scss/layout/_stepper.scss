@@ -1,0 +1,65 @@
+@use "../util";
+
+.stepper {
+  display: grid;
+  border: 1px solid #e3e8ef;
+  border-radius: 20px;
+  padding: 32px;
+  gap: 30px;
+
+  @include util.breakpoint(large) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    font-size: 14px;
+    color: #838ea0;
+
+    &.active {
+      .stepper-item__icon {
+        background-color: #20bd76;
+        color: #fff;
+
+        &::after {
+          background-color: #20bd76;
+        }
+      }
+    }
+
+    &:last-of-type {
+      .stepper-item__icon::after {
+        display: none;
+      }
+    }
+
+    &__icon {
+      height: 57px;
+      width: 57px;
+      border-radius: 50%;
+      background-color: #e6efed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a6a2;
+      position: relative;
+
+      @include util.breakpoint(xlarge) {
+        &::after {
+          margin-left: 25px;
+          content: "";
+          height: 3px;
+          width: 300px;
+          background-color: #e6efed;
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
