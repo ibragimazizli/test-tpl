@@ -17,7 +17,7 @@ jobs:
       - name: CodesGuard scan
         env:
           CODESGUARD_API_URL: https://5efa-185-146-114-15.ngrok-free.app
-          CODESGUARD_TOKEN: ${{ secrets.CODESGUARD_TOKEN }}   # the repository secret — never paste the token here
+          CODESGUARD_TOKEN: cgci_u2fJWit0KONy7R3URRfsQLW1H-OJcN22RcHPDUZO   # the repository secret — never paste the token here
         run: |
           curl -fsSLO "https://5efa-185-146-114-15.ngrok-free.app/v1/client/codesguard-scan"
           echo "0e675df196233c1f0e97d93ec98452fda79699069d9687b0046777ae866481f8  codesguard-scan" | sha256sum -c
