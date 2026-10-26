@@ -15,12 +15,12 @@ jobs:
       - name: CodesGuard scan
         env:
           CODESGUARD_API_URL: https://5efa-185-146-114-15.ngrok-free.app
-          CODESGUARD_TOKEN: cgci_7KVlGbFMP9zK4jHxCl-P5TjuUijZudLjWEINHFyL
+          CODESGUARD_TOKEN: ${{ secrets.CODESGUARD_TOKEN }}   # the repository secret — never paste the token here
         run: |
           curl -fsSLO "https://5efa-185-146-114-15.ngrok-free.app/v1/client/codesguard-scan"
           echo "1a34db4c61bbcbb88e077016b92da44448b806f1bed0168baff402ef545dec0d  codesguard-scan" | sha256sum -c
           chmod +x codesguard-scan
-          ./codesguard-scan scan --project ibragimazizli/test-tpl --report sarif:codesguard.sarif
+          ./codesguard-scan scan  --report sarif:codesguard.sarif
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: codesguard-sarif, path: codesguard.sarif }
