@@ -1,0 +1,26 @@
+name: CodesGuard
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: CodesGuard scan
+        env:
+          CODESGUARD_API_URL: https://5efa-185-146-114-15.ngrok-free.app
+          CODESGUARD_TOKEN: cgci_7KVlGbFMP9zK4jHxCl-P5TjuUijZudLjWEINHFyL
+        run: |
+          curl -fsSLO "https://5efa-185-146-114-15.ngrok-free.app/v1/client/codesguard-scan"
+          echo "1a34db4c61bbcbb88e077016b92da44448b806f1bed0168baff402ef545dec0d  codesguard-scan" | sha256sum -c
+          chmod +x codesguard-scan
+          ./codesguard-scan scan --project ibragimazizli/test-tpl --report sarif:codesguard.sarif
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: codesguard-sarif, path: codesguard.sarif }
